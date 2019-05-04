@@ -57,6 +57,10 @@ int main()
     short difference_gb_minus=0;
     difference_gb(&difference_gb_plus, &difference_gb_minus, my_list);
 
+    short difference_min_plus=0;
+    short difference_min_minus=0;
+    difference_min(&difference_min_plus, &difference_min_minus, my_list);
+
 
     return 0;
 }   
