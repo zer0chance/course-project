@@ -26,6 +26,7 @@ char min_mezhgorod;
 
 void difference_gb(short *difference_gb_plus, short *difference_gb_minus, my_tarif my_list);
 void difference_min(short *difference_min_plus, short *difference_min_minus, my_tarif my_list);
+void difference_sms(short *difference_sms_plus, short *difference_sms_minus, my_tarif my_list);
 
 
 #endif

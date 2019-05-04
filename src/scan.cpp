@@ -61,6 +61,9 @@ int main()
     short difference_min_minus=0;
     difference_min(&difference_min_plus, &difference_min_minus, my_list);
 
+    short difference_sms_plus=0;
+    short difference_sms_minus=0;
+    difference_sms(&difference_sms_plus, &difference_sms_minus, my_list);
 
     return 0;
 }   
