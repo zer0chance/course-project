@@ -52,5 +52,11 @@ int main()
     }
 
     fclose(input);
+
+    short difference_gb_plus=0;
+    short difference_gb_minus=0;
+    difference_gb(&difference_gb_plus, &difference_gb_minus, my_list);
+
+
     return 0;
-}
+}   
