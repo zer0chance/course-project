@@ -21,6 +21,7 @@ int main ()
 	data list[n];
 	int i=0;
 	FILE* input;
+	
 	input = fopen("input.txt", "r");
 	while (fscanf(input, "%s %s %d %d %d %d %d", list[i].company, list[i].tarif, &list[i].gb, &list[i].min, &list[i].sms, &list[i].min_mezhgorod, &list[i].price) != EOF) 
 	{
