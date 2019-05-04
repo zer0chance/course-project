@@ -1,0 +1,6 @@
+TELE2 CoolTraif 10 250 50 0 300
+Megafone NiceTarif 0 100 25 0 70
+Beeline YouGb -1 100 100 0 280
+Beeline Good 2 0 0 0 60
+Beeline Boom 10 800 200 0 800
+Beeline Tarifok 15 500 100 0 600
