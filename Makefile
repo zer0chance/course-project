@@ -13,3 +13,6 @@ $(EXECUTABLE) : $(OBJECTS)
 build/%.o : src/%.cpp
 	$(CC) $(CFLAGS) $< -o $@ -std=c++11
 
+.PHONY : clean
+clean:
+	rm -f $(OBJECTS) $(EXECUTABLE) $(DEPENDENCIES) 
