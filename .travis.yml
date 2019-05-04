@@ -9,3 +9,9 @@ script:
   - git ls-files src/ | xargs clang-format -i && git diff --exit-code  
 
 
+notifications:
+  email:
+    recipients:
+      - ier2000@yandex.ru
+    on_success: never
+    on_failure: always  
