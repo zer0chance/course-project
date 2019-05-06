@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-const int n = 6;
+const int n = 656;
 
 typedef struct tarifbook {
     char company[10];
