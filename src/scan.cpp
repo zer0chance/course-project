@@ -21,7 +21,7 @@ int main()
     scanf("%hi", &my_list.sms);
     while (my_list.sms < 0) {
         printf("Invalid input \nAmount of SMS you send every mounth\n");
-        scanf("%hi", &my_lcoursist.sms);
+        scanf("%hi", &my_list.sms);
     }
 
     printf("Do you want your tariff to include calls abroad? (y/n)\n");
@@ -37,8 +37,13 @@ int main()
     list = new data[n];
     int i = 0;
     FILE* input;
-
-    input = fopen("input.txt", "r");
+    
+    if(my_list.min_mezhgorod=='n')
+        input = fopen("input.txt", "r");
+    else
+        input = fopen("input2.txt", "r");
+ 
+ 
     while (fscanf(input, "%s %s %hi %hi %hi %hi %d", list[i].company, list[i].tarif, &list[i].gb, &list[i].min,
                &list[i].sms, &list[i].min_mezhgorod, &list[i].price)
         != EOF) {
