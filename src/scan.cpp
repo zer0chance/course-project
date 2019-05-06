@@ -21,7 +21,7 @@ int main()
     scanf("%hi", &my_list.sms);
     while (my_list.sms < 0) {
         printf("Invalid input \nAmount of SMS you send every mounth\n");
-        scanf("%hi", &my_list.sms);
+        scanf("%hi", &my_lcoursist.sms);
     }
 
     printf("Do you want your tariff to include calls abroad? (y/n)\n");
