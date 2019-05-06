@@ -10,10 +10,10 @@ const int n = 6;
 typedef struct tarifbook {
 char company[10];
 char tarif[10];
-int gb;
-int min;
-int sms;
-int min_mezhgorod;
+short gb;
+short min;
+short sms;
+short min_mezhgorod;
 int price;
 } data;
 
