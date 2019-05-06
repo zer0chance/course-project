@@ -1,9 +1,7 @@
-#include "tarif.h"
-
-
+ #include "tarif.h"
 int main()
 {
-   my_tarif my_list;
+    my_tarif my_list;
  
  
     printf("Amount of GB of internet you spend every mounth\n");
@@ -11,7 +9,7 @@ int main()
     while(my_list.gb<0)
     {
         printf("Invalid input \nAmount of GB of internet you spend every mounth\n");
-         scanf("%hi", &my_list.gb);
+        scanf("%hi", &my_list.gb);
     }
  
  
@@ -40,30 +38,36 @@ int main()
         printf("Do you want your tariff to include calls abroad? (y/n)\n");
         scanf("%s", &my_list.min_mezhgorod);
     }
-
-    data list[n];
+ 
+    data *list;
+    list = new data[n];
     int i = 0;
     FILE* input;
-
+ 
     input = fopen("input.txt", "r");
-    while (fscanf(input, "%s %s %d %d %d %d %d", list[i].company, list[i].tarif, &list[i].gb, &list[i].min, &list[i].sms, &list[i].min_mezhgorod, &list[i].price) != EOF) {
-        printf("\n %s %s %d %d %d %d %d\n\n", list[i].company, list[i].tarif, list[i].gb, list[i].min, list[i].sms, list[i].min_mezhgorod, list[i].price);
+       while (fscanf(input, "%s %s %hi %hi %hi %hi %d", list[i].company, list[i].tarif, &list[i].gb, &list[i].min,
+               &list[i].sms, &list[i].min_mezhgorod, &list[i].price) != EOF) {
+
+        if(list[i].gb<-1||list[i].min<0||list[i].sms<-1||list[i].min_mezhgorod<0||list[i].price<0)
+        {
+            printf ("%d,Invalid input in %s %s\n",i,list[i].company, list[i].tarif);
+            return 0;
+        }
         i++;
     }
-
-    fclose(input);
-
+ 
     short difference_gb_plus=0;
     short difference_gb_minus=0;
     difference_gb(&difference_gb_plus, &difference_gb_minus, my_list);
-
+ 
     short difference_min_plus=0;
     short difference_min_minus=0;
     difference_min(&difference_min_plus, &difference_min_minus, my_list);
-
+ 
     short difference_sms_plus=0;
     short difference_sms_minus=0;
     difference_sms(&difference_sms_plus, &difference_sms_minus, my_list);
-
+ 
+    delete(list);
     return 0;
-}   
+}
