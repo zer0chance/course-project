@@ -71,6 +71,9 @@ int main()
     data* tarif_for_me;
     tarif_for_me = new data[m];
     search_tarif(list, tarif_for_me);
+        FILE *output;
+    output = fopen("output.txt", "w");
+    print_my_tarif(tarif_for_me, m,output);
     delete (list);
     return 0;
 }
