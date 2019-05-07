@@ -74,6 +74,7 @@ int main()
         FILE *output;
     output = fopen("output.txt", "w");
     print_my_tarif(tarif_for_me, m,output);
+    delete(tarif_for_me);
     delete (list);
     return 0;
 }
