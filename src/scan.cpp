@@ -35,7 +35,7 @@ int main()
 
     data* list;
     list = new data[n];
-    int i = 0;
+    int i = 0, m;
     FILE* input;
     
     if(my_list.min_mezhgorod=='n')
@@ -59,6 +59,7 @@ int main()
     short difference_gb_minus = 0;
     difference_gb(&difference_gb_plus, &difference_gb_minus, my_list);
 
+
     short difference_min_plus = 0;
     short difference_min_minus = 0;
     difference_min(&difference_min_plus, &difference_min_minus, my_list);
@@ -66,7 +67,10 @@ int main()
     short difference_sms_plus = 0;
     short difference_sms_minus = 0;
     difference_sms(&difference_sms_plus, &difference_sms_minus, my_list);
-
+    bool_for_me(difference_gb_plus, difference_gb_minus, difference_min_plus, difference_min_minus, difference_sms_plus,
+                difference_sms_minus, my_list, list);
+    m = quantity_my_tarif(list);
+    printf("%d \n", m);
     delete (list);
     return 0;
 }
