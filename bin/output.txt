@@ -1,0 +1,7 @@
+Megafone TILL gb:0, min:100, sms:50, mezhg=94, price:501
+MTS TRUE gb:0, min:120, sms:50, mezhg=59, price:579
+Mts TWO gb:2, min:120, sms:50, mezhg=46, price:579
+Megafone US gb:0, min:100, sms:80, mezhg=62, price:530
+MTS WATER gb:0, min:120, sms:80, mezhg=71, price:567
+Mts WEATHER gb:2, min:120, sms:80, mezhg=57, price:503
+Tele2 EXPERIENCE gb:2, min:99, sms:53, mezhg=78, price:530
