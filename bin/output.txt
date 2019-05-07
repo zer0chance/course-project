@@ -1,0 +1,8 @@
+Yota EYE gb:10, min:20, sms:80, mezhg=0, price:160
+Yota FACT gb:10, min:70, sms:80, mezhg=0, price:170
+Tele2 FARM gb:15, min:20, sms:80, mezhg=0, price:200
+Tele2 FARMER gb:15, min:70, sms:80, mezhg=0, price:210
+Yota IF gb:10, min:20, sms:120, mezhg=0, price:160
+Yota ILL gb:10, min:70, sms:120, mezhg=0, price:170
+Tele2 INFORMATIO gb:15, min:0, sms:120, mezhg=0, price:200
+Tele2 INSIDE gb:15, min:70, sms:120, mezhg=0, price:210
