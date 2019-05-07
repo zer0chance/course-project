@@ -68,7 +68,7 @@ int main()
     bool_for_me(difference_gb_plus, difference_gb_minus, difference_min_plus, difference_min_minus, difference_sms_plus,
         difference_sms_minus, my_list, list);
     m = quantity_my_tarif(list);
-    data *tarif_for_me;
+    data* tarif_for_me;
     tarif_for_me = new data[m];
     search_tarif(list, tarif_for_me);
     delete (list);
