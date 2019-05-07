@@ -71,6 +71,7 @@ int main()
     data *tarif_for_me;
     tarif_for_me = new data[m];
     search_tarif(list, tarif_for_me);
+    print_my_tarif(tarif_for_me, m);
     delete (list);
     return 0;
 }
