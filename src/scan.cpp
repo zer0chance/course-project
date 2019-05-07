@@ -35,15 +35,14 @@ int main()
 
     data* list;
     list = new data[n];
-    int i = 0;
+    int i = 0, m;
     FILE* input;
-    
-    if(my_list.min_mezhgorod=='n')
+
+    if (my_list.min_mezhgorod == 'n')
         input = fopen("input.txt", "r");
     else
         input = fopen("input2.txt", "r");
- 
- 
+
     while (fscanf(input, "%s %s %hi %hi %hi %hi %d", list[i].company, list[i].tarif, &list[i].gb, &list[i].min,
                &list[i].sms, &list[i].min_mezhgorod, &list[i].price)
         != EOF) {
@@ -66,7 +65,12 @@ int main()
     short difference_sms_plus = 0;
     short difference_sms_minus = 0;
     difference_sms(&difference_sms_plus, &difference_sms_minus, my_list);
-
+    bool_for_me(difference_gb_plus, difference_gb_minus, difference_min_plus, difference_min_minus, difference_sms_plus,
+        difference_sms_minus, my_list, list);
+    m = quantity_my_tarif(list);
+    data *tarif_for_me;
+    tarif_for_me = new data[m];
+    search_tarif(list, tarif_for_me);
     delete (list);
     return 0;
 }
