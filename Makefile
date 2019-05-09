@@ -1,5 +1,6 @@
 CC = g++
 EXECUTABLE = bin/main.exe
+OUTPUT = bin/output.txt
 CFLAGS = -Wall -Werror -c -MD
 SOURCES = $(wildcard $(addprefix src/,*.cpp))
 OBJECTS = $(patsubst $(addprefix src/, %.cpp),$(addprefix build/, %.o),$(wildcard $(addprefix src/, *.cpp)))
@@ -15,4 +16,4 @@ build/%.o : src/%.cpp
 
 .PHONY : clean
 clean:
-	rm -f $(OBJECTS) $(EXECUTABLE) $(DEPENDENCIES) 
+	rm -f $(OBJECTS) $(EXECUTABLE) $(DEPENDENCIES) $(OUTPUT)
