@@ -41,5 +41,6 @@ int quantity_my_tarif(data* list);
 void search_tarif(data* list, data* tarif_for_me);
 void print_my_tarif(data* list, int m, FILE* output, int* A);
 void Sort_Price(data *list, int *A, int size);
+void Relevance_Sort(my_tarif my_list, data* list, int *A, int size);
 
 #endif

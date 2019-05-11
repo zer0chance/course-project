@@ -87,9 +87,6 @@ int main()
     fclose(output);
     
 
-    Sort_Price(tarif_for_me, IndexArr, size);
-    for (i = 0; i<size; i++) IndexArrVerse[i] = IndexArr[size-1-i];
-
     printf("\nDo you want to sort suitable tariffs by price/relevance? (1/2)\n");
     while (sort_field != 1 && sort_field != 2)
     {
@@ -98,6 +95,9 @@ int main()
 
     if (sort_field == 1)
     {    
+        Sort_Price(tarif_for_me, IndexArr, size);
+        for (i = 0; i<size; i++) IndexArrVerse[i] = IndexArr[size-1-i];
+
         printf("\nDo you want to sort by price up/down? (1/2)\n");
         while (sort_way != 1 && sort_way != 2)
         {
@@ -115,7 +115,7 @@ int main()
 
     if (sort_field == 2)
     {
-        
+        Relevance_Sort(my_list, tarif_for_me, IndexArr, size);
     }     
     
     fclose(output);    
