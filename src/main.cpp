@@ -1,6 +1,9 @@
 #include "tarif.h"
+
 int main()
 {
+    int *IndexArr, *IndexArrVerse;
+    unsigned int sort_way, sort_field;
     my_tarif my_list;
 
     printf("Amount of GB of internet you spend every mounth\n");
@@ -35,7 +38,7 @@ int main()
 
     data* list;
     list = new data[n];
-    int i = 0, m;
+    int i = 0, size;
     FILE* input;
 
     if (my_list.min_mezhgorod == 'n')
@@ -67,13 +70,55 @@ int main()
     difference_sms(&difference_sms_plus, &difference_sms_minus, my_list);
     bool_for_me(difference_gb_plus, difference_gb_minus, difference_min_plus, difference_min_minus, difference_sms_plus,
         difference_sms_minus, my_list, list);
-    m = quantity_my_tarif(list);
+
+    size = quantity_my_tarif(list);
     data* tarif_for_me;
-    tarif_for_me = new data[m];
+    tarif_for_me = new data[size];
+    IndexArr = new int[size];
+    IndexArrVerse = new int[size];
+
+    for (i = 0; i < size; i++)
+        IndexArr[i] = i;
+
     search_tarif(list, tarif_for_me);
+
     FILE* output;
     output = fopen("output.txt", "w");
-    print_my_tarif(tarif_for_me, m, output);
+    print_my_tarif(tarif_for_me, size, output, IndexArr);
+    fclose(output);
+
+    printf("\nDo you want to sort suitable tariffs by price/relevance? (1/2)\n");
+    while (sort_field != 1 && sort_field != 2) {
+        scanf("%u", &sort_field);
+    }
+
+    if (sort_field == 1) {
+        Sort_Price(tarif_for_me, IndexArr, size);
+        for (i = 0; i < size; i++)
+            IndexArrVerse[i] = IndexArr[size - 1 - i];
+
+        printf("\nDo you want to sort by price up/down? (1/2)\n");
+        while (sort_way != 1 && sort_way != 2) {
+            scanf("%u", &sort_way);
+        }
+
+        output = fopen("output.txt", "w");
+
+        if (sort_way == 1)
+            print_my_tarif(tarif_for_me, size, output, IndexArr);
+
+        if (sort_way == 2)
+            print_my_tarif(tarif_for_me, size, output, IndexArrVerse);
+    }
+
+    if (sort_field == 2) {
+        Relevance_Sort(my_list, tarif_for_me, IndexArr, size);
+    }
+
+    printf("\n\n DONE!\nCheck output.txt");
+
+    fclose(output);
+
     delete (tarif_for_me);
     delete (list);
     return 0;

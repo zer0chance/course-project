@@ -1,6 +1,7 @@
 #ifndef TARIF_H
 #define TARIF_H
 
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -38,5 +39,8 @@ void bool_for_me(short difference_gb_plus, short difference_gb_minus, short diff
     short difference_sms_plus, short difference_sms_minus, my_tarif my_list, data* list);
 int quantity_my_tarif(data* list);
 void search_tarif(data* list, data* tarif_for_me);
-void print_my_tarif(data* list, int m, FILE* output);
+void print_my_tarif(data* list, int m, FILE* output, int* A);
+void Sort_Price(data* list, int* A, int size);
+void Relevance_Sort(my_tarif my_list, data* list, int* A, int size);
+
 #endif
