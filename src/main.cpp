@@ -78,6 +78,15 @@ int main()
     int *IndexArr;
     IndexArr = new int[m];
 
+    Sort_Price(tarif_for_me, IndexArr, m);
+
+    system("clear");
+
+    for (i = m-1; i>=0; i--)
+        printf("\n%-8s %-10s gb: %-8hi min: %-8hi sms: %-8hi mezhg: %-4hi price: %d\n", tarif_for_me[IndexArr[i]].company, tarif_for_me[IndexArr[i]].tarif,
+                tarif_for_me[IndexArr[i]].gb,
+                tarif_for_me[IndexArr[i]].min, tarif_for_me[IndexArr[i]].sms, tarif_for_me[IndexArr[i]].min_mezhgorod, tarif_for_me[IndexArr[i]].price);
+
     delete (tarif_for_me);
     delete (list);
     return 0;

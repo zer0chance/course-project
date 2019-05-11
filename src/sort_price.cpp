@@ -22,9 +22,4 @@ void Sort_Price(data *list, int *A, int size)
 			A[index] = temp;
 		}	
 	}
-
-	/*for (i = 0; i<size; i++)
-		printf("\n%-8s %-10s gb: %-8hi min: %-8hi sms: %-8hi mezhg: %-4hi price: %d\n", list[A[i]].company, list[A[i]].tarif,
-                list[A[i]].gb,
-                list[A[i]].min, list[A[i]].sms, list[A[i]].min_mezhgorod, list[A[i]].price);
-*/}
+}
