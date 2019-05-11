@@ -3,7 +3,7 @@
 int main()
 {
     int *IndexArr, *IndexArrVerse;
-    unsigned int sort_way;
+    unsigned int sort_way, sort_field;
     my_tarif my_list;
 
     printf("Amount of GB of internet you spend every mounth\n");
@@ -87,32 +87,39 @@ int main()
     fclose(output);
     
 
-    Sort_Price(tarif_for_me, IndexArr, size);
-    for (i = 0; i<size; i++) IndexArrVerse[i] = IndexArr[size-1-i];
-
-    printf("\nDo you want to sort suitable tariffs by price up/down? (1/2)\n");
-    while (sort_way != 1 && sort_way != 2)
+    printf("\nDo you want to sort suitable tariffs by price/relevance? (1/2)\n");
+    while (sort_field != 1 && sort_field != 2)
     {
-        scanf("%u", &sort_way);
+        scanf("%u", &sort_field);
     }
 
-    output = fopen("output.txt", "w");    
+    if (sort_field == 1)
+    {    
+        Sort_Price(tarif_for_me, IndexArr, size);
+        for (i = 0; i<size; i++) IndexArrVerse[i] = IndexArr[size-1-i];
 
-    if (sort_way == 1)
-        print_my_tarif(tarif_for_me, size, output, IndexArr);
+        printf("\nDo you want to sort by price up/down? (1/2)\n");
+        while (sort_way != 1 && sort_way != 2)
+        {
+            scanf("%u", &sort_way);
+        }
 
-    if (sort_way == 2)
-        print_my_tarif(tarif_for_me, size, output, IndexArrVerse);
-            
+        output = fopen("output.txt", "w");    
+
+        if (sort_way == 1)
+            print_my_tarif(tarif_for_me, size, output, IndexArr);
+
+        if (sort_way == 2)
+            print_my_tarif(tarif_for_me, size, output, IndexArrVerse);
+    }   
+
+    if (sort_field == 2)
+    {
+        Relevance_Sort(my_list, tarif_for_me, IndexArr, size);
+    }     
     
     fclose(output);    
-    /*system("clear");
-
-    for (i = size-1; i>=0; i--)
-        printf("\n%-8s %-10s gb: %-8hi min: %-8hi sms: %-8hi mezhg: %-4hi price: %d\n", tarif_for_me[IndexArr[i]].company, tarif_for_me[IndexArr[i]].tarif,
-                tarif_for_me[IndexArr[i]].gb,
-                tarif_for_me[IndexArr[i]].min, tarif_for_me[IndexArr[i]].sms, tarif_for_me[IndexArr[i]].min_mezhgorod, tarif_for_me[IndexArr[i]].price);
-    */
+   
 
     delete (tarif_for_me);
     delete (list);
