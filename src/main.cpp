@@ -2,7 +2,8 @@
 
 int main()
 {
-    int *IndexArr;
+    int *IndexArr, *IndexArrVerse;
+    unsigned int sort_way;
     my_tarif my_list;
 
     printf("Amount of GB of internet you spend every mounth\n");
@@ -74,6 +75,7 @@ int main()
     data* tarif_for_me;
     tarif_for_me = new data[size];
     IndexArr = new int[size];
+    IndexArrVerse = new int[size];
 
     for (i = 0; i<size; i++) IndexArr[i] = i;
 
@@ -81,18 +83,36 @@ int main()
 
     FILE* output;
     output = fopen("output.txt", "w");
-    print_my_tarif(tarif_for_me, size, output);
+    print_my_tarif(tarif_for_me, size, output, IndexArr);
     fclose(output);
     
 
     Sort_Price(tarif_for_me, IndexArr, size);
+    for (i = 0; i<size; i++) IndexArrVerse[i] = IndexArr[size-1-i];
 
-    system("clear");
+    printf("\nDo you want to sort suitable tariffs by price up/down? (1/2)\n");
+    while (sort_way != 1 && sort_way != 2)
+    {
+        scanf("%u", &sort_way);
+    }
+
+    output = fopen("output.txt", "w");    
+
+    if (sort_way == 1)
+        print_my_tarif(tarif_for_me, size, output, IndexArr);
+
+    if (sort_way == 2)
+        print_my_tarif(tarif_for_me, size, output, IndexArrVerse);
+            
+    
+    fclose(output);    
+    /*system("clear");
 
     for (i = size-1; i>=0; i--)
         printf("\n%-8s %-10s gb: %-8hi min: %-8hi sms: %-8hi mezhg: %-4hi price: %d\n", tarif_for_me[IndexArr[i]].company, tarif_for_me[IndexArr[i]].tarif,
                 tarif_for_me[IndexArr[i]].gb,
                 tarif_for_me[IndexArr[i]].min, tarif_for_me[IndexArr[i]].sms, tarif_for_me[IndexArr[i]].min_mezhgorod, tarif_for_me[IndexArr[i]].price);
+    */
 
     delete (tarif_for_me);
     delete (list);

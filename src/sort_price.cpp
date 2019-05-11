@@ -4,8 +4,6 @@ void Sort_Price(data *list, int *A, int size)
 {
 	int i, j, temp, index;
 
-	for (i = 0; i<size; i++) A[i] = i;
-
 	for (i = 0; i < size-1; i++)
 	{
 		index = i;
