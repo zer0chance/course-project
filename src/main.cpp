@@ -77,7 +77,8 @@ int main()
     IndexArr = new int[size];
     IndexArrVerse = new int[size];
 
-    for (i = 0; i<size; i++) IndexArr[i] = i;
+    for (i = 0; i < size; i++)
+        IndexArr[i] = i;
 
     search_tarif(list, tarif_for_me);
 
@@ -85,43 +86,38 @@ int main()
     output = fopen("output.txt", "w");
     print_my_tarif(tarif_for_me, size, output, IndexArr);
     fclose(output);
-    
 
     printf("\nDo you want to sort suitable tariffs by price/relevance? (1/2)\n");
-    while (sort_field != 1 && sort_field != 2)
-    {
+    while (sort_field != 1 && sort_field != 2) {
         scanf("%u", &sort_field);
     }
 
-    if (sort_field == 1)
-    {    
+    if (sort_field == 1) {
         Sort_Price(tarif_for_me, IndexArr, size);
-        for (i = 0; i<size; i++) IndexArrVerse[i] = IndexArr[size-1-i];
+        for (i = 0; i < size; i++)
+            IndexArrVerse[i] = IndexArr[size - 1 - i];
 
         printf("\nDo you want to sort by price up/down? (1/2)\n");
-        while (sort_way != 1 && sort_way != 2)
-        {
+        while (sort_way != 1 && sort_way != 2) {
             scanf("%u", &sort_way);
         }
 
-        output = fopen("output.txt", "w");    
+        output = fopen("output.txt", "w");
 
         if (sort_way == 1)
             print_my_tarif(tarif_for_me, size, output, IndexArr);
 
         if (sort_way == 2)
             print_my_tarif(tarif_for_me, size, output, IndexArrVerse);
-    }   
+    }
 
-    if (sort_field == 2)
-    {
+    if (sort_field == 2) {
         Relevance_Sort(my_list, tarif_for_me, IndexArr, size);
-    }     
+    }
 
     printf("\n\n DONE!\nCheck output.txt");
-    
-    fclose(output);    
-   
+
+    fclose(output);
 
     delete (tarif_for_me);
     delete (list);
