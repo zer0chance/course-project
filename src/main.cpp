@@ -74,6 +74,10 @@ int main()
     FILE* output;
     output = fopen("output.txt", "w");
     print_my_tarif(tarif_for_me, m, output);
+
+    int *IndexArr;
+    IndexArr = new int[m];
+
     delete (tarif_for_me);
     delete (list);
     return 0;
