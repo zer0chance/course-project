@@ -117,6 +117,8 @@ int main()
     {
         Relevance_Sort(my_list, tarif_for_me, IndexArr, size);
     }     
+
+    printf("\n\n DONE!\nCheck output.txt");
     
     fclose(output);    
    
