@@ -39,4 +39,6 @@ void bool_for_me(short difference_gb_plus, short difference_gb_minus, short diff
 int quantity_my_tarif(data* list);
 void search_tarif(data* list, data* tarif_for_me);
 void print_my_tarif(data* list, int m, FILE* output);
+void Sort_Price(data *list, int *A, int size);
+
 #endif
