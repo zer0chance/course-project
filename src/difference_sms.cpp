@@ -22,7 +22,7 @@ void difference_sms(short* difference_sms_plus, short* difference_sms_minus, my_
         *difference_sms_plus = 100;
         *difference_sms_minus = 50;
     }
-    if ((my_list.sms > 200) && (my_list.sms <= 300)) {
+    if ((my_list.sms > 300) && (my_list.sms <= 500)) {
         *difference_sms_plus = 150;
         *difference_sms_minus = 50;
     }
