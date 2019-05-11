@@ -1,6 +1,8 @@
 #include "tarif.h"
+
 int main()
 {
+    int *IndexArr;
     my_tarif my_list;
 
     printf("Amount of GB of internet you spend every mounth\n");
@@ -35,7 +37,7 @@ int main()
 
     data* list;
     list = new data[n];
-    int i = 0, m;
+    int i = 0, size;
     FILE* input;
 
     if (my_list.min_mezhgorod == 'n')
@@ -67,22 +69,27 @@ int main()
     difference_sms(&difference_sms_plus, &difference_sms_minus, my_list);
     bool_for_me(difference_gb_plus, difference_gb_minus, difference_min_plus, difference_min_minus, difference_sms_plus,
         difference_sms_minus, my_list, list);
-    m = quantity_my_tarif(list);
+
+    size = quantity_my_tarif(list);
     data* tarif_for_me;
-    tarif_for_me = new data[m];
+    tarif_for_me = new data[size];
+    IndexArr = new int[size];
+
+    for (i = 0; i<size; i++) IndexArr[i] = i;
+
     search_tarif(list, tarif_for_me);
+
     FILE* output;
     output = fopen("output.txt", "w");
-    print_my_tarif(tarif_for_me, m, output);
+    print_my_tarif(tarif_for_me, size, output);
+    fclose(output);
+    
 
-    int *IndexArr;
-    IndexArr = new int[m];
-
-    Sort_Price(tarif_for_me, IndexArr, m);
+    Sort_Price(tarif_for_me, IndexArr, size);
 
     system("clear");
 
-    for (i = m-1; i>=0; i--)
+    for (i = size-1; i>=0; i--)
         printf("\n%-8s %-10s gb: %-8hi min: %-8hi sms: %-8hi mezhg: %-4hi price: %d\n", tarif_for_me[IndexArr[i]].company, tarif_for_me[IndexArr[i]].tarif,
                 tarif_for_me[IndexArr[i]].gb,
                 tarif_for_me[IndexArr[i]].min, tarif_for_me[IndexArr[i]].sms, tarif_for_me[IndexArr[i]].min_mezhgorod, tarif_for_me[IndexArr[i]].price);
