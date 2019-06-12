@@ -6,7 +6,11 @@ TEST_CASE("Sorting by price")
 {
 	int size = 5;
 	data list[size];
-	for (int i = 0; i < size; i ++) list[i].price = 50 + rand()%50;
+	for (int i = 0; i < size; i++) list[i].price = 50 + rand()%50;
+
+	int A[size];
+		
+	for (i = 0; i < size; i++) A[i] = i;
 
 	Sort_Price(data* list, int* A, int size);
 
