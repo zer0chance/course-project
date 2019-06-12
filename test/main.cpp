@@ -10,7 +10,7 @@ TEST_CASE("Sorting by price")
 
 	int A[size];
 		
-	for (i = 0; i < size; i++) A[i] = i;
+	for (int i = 0; i < size; i++) A[i] = i;
 
 	SECTION("Index array inititalized correctly")
 	{
