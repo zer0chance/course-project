@@ -4,7 +4,11 @@
 
 TEST_CASE("Sorting by price")
 {
+	int size = 5;
+	data list[size];
+	for (int i = 0; i < size; i ++) list[i].price = 50 + rand()%50;
 
+	Sort_Price(data* list, int* A, int size);
 
     /*const float x1 = 1;
     const float y1 = 1;
