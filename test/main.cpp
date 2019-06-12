@@ -12,7 +12,16 @@ TEST_CASE("Sorting by price")
 		
 	for (i = 0; i < size; i++) A[i] = i;
 
-	Sort_Price(data* list, int* A, int size);
+	SECTION("Index array inititalized correctly")
+	{
+		REQUIRE(A[0] == 0);
+		REQUIRE(A[1] == 1);
+		REQUIRE(A[2] == 2);
+		REQUIRE(A[3] == 3);
+		REQUIRE(A[4] == 4);
+	}
+
+	//Sort_Price(data* list, int* A, int size);
 
     /*const float x1 = 1;
     const float y1 = 1;
