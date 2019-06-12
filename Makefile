@@ -18,7 +18,7 @@ build/src/%.o : src/%.cpp
 
 .PHONY: clean
 clean:
-	rm -f $(OBJECTS) $(EXECUTABLE) $(DEPENDENCIES) bin/test.exe
+	rm -f $(OBJECTS) $(EXECUTABLE) $(DEPENDENCIES) $(TEST_DEPENDENCIES) $(TEST) bin/test.exe
 
 .PHONY: test
 
