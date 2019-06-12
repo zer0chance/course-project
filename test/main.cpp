@@ -21,7 +21,16 @@ TEST_CASE("Sorting by price")
 		REQUIRE(A[4] == 4);
 	}
 
-	//Sort_Price(data* list, int* A, int size);
+	Sort_Price(list, A, size);
+
+	SECTION("Sort by price up complites correctly")
+	{
+		REQUIRE(list[A[0]].price <= list[A[1]].price);
+		REQUIRE(list[A[1]].price <= list[A[2]].price);
+		REQUIRE(list[A[2]].price <= list[A[3]].price);
+		REQUIRE(list[A[3]].price <= list[A[4]].price);
+	}
+
 
     /*const float x1 = 1;
     const float y1 = 1;
