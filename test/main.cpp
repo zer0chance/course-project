@@ -4,13 +4,13 @@
 
 TEST_CASE("Sorting by price")
 {
-	int size = 5;
+	int size = 5, i;
 	data list[size];
-	for (int i = 0; i < size; i++) list[i].price = 50 + rand()%50;
+	for (i = 0; i < size; i++) list[i].price = 50 + rand()%50;
 
-	int A[size];
+	int A[size], B[size];
 		
-	for (int i = 0; i < size; i++) A[i] = i;
+	for (i = 0; i < size; i++) A[i] = i;
 
 	SECTION("Index array inititalized correctly")
 	{
@@ -23,6 +23,8 @@ TEST_CASE("Sorting by price")
 
 	Sort_Price(list, A, size);
 
+	for (i = 0; i < size; i++) B[i] = A[size - 1 - i];
+
 	SECTION("Sort by price up complites correctly")
 	{
 		REQUIRE(list[A[0]].price <= list[A[1]].price);
@@ -31,14 +33,11 @@ TEST_CASE("Sorting by price")
 		REQUIRE(list[A[3]].price <= list[A[4]].price);
 	}
 
-
-    /*const float x1 = 1;
-    const float y1 = 1;
-    const float x2 = 1;
-    const float y2 = 11;
-    const float x3 = 11;
-    const float y3 = 1;
-    const float P = 20 + sqrt(200);
-
-    REQUIRE(Area(x1, y1, x2, y2, x3, y3, P) == 50);*/
+	SECTION("Sort by price down complites correctly")
+	{
+		REQUIRE(list[B[0]].price >= list[B[1]].price);
+		REQUIRE(list[B[1]].price >= list[B[2]].price);
+		REQUIRE(list[B[2]].price >= list[B[3]].price);
+		REQUIRE(list[B[3]].price >= list[B[4]].price);
+	}
 }
