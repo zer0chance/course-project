@@ -16,11 +16,11 @@ $(EXECUTABLE) : $(OBJECTS)
 build/src/%.o : src/%.cpp
 	$(CC) $(CFLAGS) $< -o $@ -std=c++11
 
-.PHONY : clean
+.PHONY: clean
 clean:
 	rm -f $(OBJECTS) $(EXECUTABLE) $(DEPENDENCIES) bin/test.exe
 
-.PHONY : test
+.PHONY: test
 
 test: $(TEST)
  
