@@ -45,7 +45,7 @@ TEST_CASE("Sorting by price")
 
 TEST_CASE("Sorting by relevance")
 {
-	int size = 5, i;
+	int size = 5, i, Total;
 	data list[size];
 	my_tarif input;
 
@@ -53,10 +53,14 @@ TEST_CASE("Sorting by relevance")
 	input.min = 70;
 	input.sms = 50;
 
+	const Total = my_list.gb * 25 + my_list.sms + my_list.min;
+
 	int A[size];
 		
 	for (i = 0; i < size; i++) A[i] = i;
 
 
-	for (i = 0; i < size; i++) list[i].gb = 50 + rand()%50;
+	for (i = 0; i < size; i++) list[i].gb = 11 + rand()%8;
+	for (i = 0; i < size; i++) list[i].min = 50 + rand()%41;
+	for (i = 0; i < size; i++) list[i].gb = 40 + rand()%20;	
 }
