@@ -113,6 +113,10 @@ int main()
 
     if (sort_field == 2) {
         Relevance_Sort(my_list, tarif_for_me, IndexArr, size);
+
+        output = fopen("output.txt", "w");
+
+        print_my_tarif(tarif_for_me, size, output, IndexArr);
     }
 
     printf("\n\n DONE!\nCheck output.txt");
