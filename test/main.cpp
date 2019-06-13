@@ -45,7 +45,7 @@ TEST_CASE("Sorting by price")
 
 TEST_CASE("Sorting by relevance")
 {
-	int size = 5, i, Total;
+	int size = 5, i, Total, Sum_1, Sum_2;
 	data list[size];
 	my_tarif input;
 
@@ -63,4 +63,10 @@ TEST_CASE("Sorting by relevance")
 	for (i = 0; i < size; i++) list[i].gb = 11 + rand()%8;
 	for (i = 0; i < size; i++) list[i].min = 50 + rand()%41;
 	for (i = 0; i < size; i++) list[i].gb = 40 + rand()%20;	
+
+	Relevance_Sort(input, list, A, size);
+
+	Sum_1 = list[A[0]].gb * 25 + list[A[0]].sms + list[A[0]].min;
+	Sum_2 = list[A[1]].gb * 25 + list[A[1]].sms + list[A[1]].min;
+	REQUIRE(abs(Total - Sum_1) < abs(Total - Sum_2));
 }
