@@ -47,10 +47,16 @@ TEST_CASE("Sorting by relevance")
 {
 	int size = 5, i;
 	data list[size];
+	my_tarif input;
 
-	int A[size]
+	input.gb = 15;
+	input.min = 70;
+	input.sms = 50;
+
+	int A[size];
 		
 	for (i = 0; i < size; i++) A[i] = i;
-		
-	for (i = 0; i < size; i++) list[i].price = 50 + rand()%50;
+
+
+	for (i = 0; i < size; i++) list[i].gb = 50 + rand()%50;
 }
