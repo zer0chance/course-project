@@ -4,6 +4,7 @@
 
 TEST_CASE("Sorting by price")
 {
+	srand(time(0));
 	int size = 5, i;
 	data list[size];
 	for (i = 0; i < size; i++) list[i].price = 50 + rand()%50;
@@ -45,7 +46,8 @@ TEST_CASE("Sorting by price")
 
 TEST_CASE("Sorting by relevance")
 {
-	int size = 5, i, Total, Sum_1, Sum_2;
+	srand(time(0));
+	int size = 5, i, Total, Sum_1 = 0, Sum_2 = 0;
 	data list[size];
 	my_tarif input;
 
@@ -53,7 +55,7 @@ TEST_CASE("Sorting by relevance")
 	input.min = 70;
 	input.sms = 50;
 
-	const Total = my_list.gb * 25 + my_list.sms + my_list.min;
+	Total = input.gb * 25 + input.sms + input.min;
 
 	int A[size];
 		
@@ -68,5 +70,5 @@ TEST_CASE("Sorting by relevance")
 
 	Sum_1 = list[A[0]].gb * 25 + list[A[0]].sms + list[A[0]].min;
 	Sum_2 = list[A[1]].gb * 25 + list[A[1]].sms + list[A[1]].min;
-	REQUIRE(abs(Total - Sum_1) < abs(Total - Sum_2));
+	REQUIRE(((Total - Sum_1)*(Total - Sum_1)) <= ((Total - Sum_2)*(Total - Sum_2)));
 }
