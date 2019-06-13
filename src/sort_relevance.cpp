@@ -27,7 +27,7 @@ void Relevance_Sort(my_tarif my_list, data* list, int* A, int size)
             if ((list[j].sms == -1) && (list[j].gb == -1))
                 j_sum = 1000 + list[j].min;
 
-            if (abs(Total - j_sum) < abs(Total - i_sum))
+            if (((Total - j_sum)*(Total - j_sum)) <= ((Total - i_sum)*(Total - i_sum)))
                 index = j;
         }
 
