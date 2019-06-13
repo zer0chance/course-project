@@ -41,3 +41,16 @@ TEST_CASE("Sorting by price")
 		REQUIRE(list[B[3]].price >= list[B[4]].price);
 	}
 }
+
+
+TEST_CASE("Sorting by relevance")
+{
+	int size = 5, i;
+	data list[size];
+
+	int A[size]
+		
+	for (i = 0; i < size; i++) A[i] = i;
+		
+	for (i = 0; i < size; i++) list[i].price = 50 + rand()%50;
+}
