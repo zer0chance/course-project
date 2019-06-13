@@ -71,4 +71,16 @@ TEST_CASE("Sorting by relevance")
 	Sum_1 = list[A[0]].gb * 25 + list[A[0]].sms + list[A[0]].min;
 	Sum_2 = list[A[1]].gb * 25 + list[A[1]].sms + list[A[1]].min;
 	REQUIRE(((Total - Sum_1)*(Total - Sum_1)) <= ((Total - Sum_2)*(Total - Sum_2)));
+
+	/*Sum_1 = list[A[1]].gb * 25 + list[A[1]].sms + list[A[1]].min;
+	Sum_2 = list[A[2]].gb * 25 + list[A[2]].sms + list[A[2]].min;
+	REQUIRE(((Total - Sum_1)*(Total - Sum_1)) <= ((Total - Sum_2)*(Total - Sum_2)));
+
+	Sum_1 = list[A[2]].gb * 25 + list[A[2]].sms + list[A[2]].min;
+	Sum_2 = list[A[3]].gb * 25 + list[A[3]].sms + list[A[3]].min;
+	REQUIRE(((Total - Sum_1)*(Total - Sum_1)) <= ((Total - Sum_2)*(Total - Sum_2)));*/
+
+	/*Sum_1 = list[A[3]].gb * 25 + list[A[3]].sms + list[A[3]].min;
+	Sum_2 = list[A[4]].gb * 25 + list[A[4]].sms + list[A[4]].min;
+	REQUIRE(((Total - Sum_1)*(Total - Sum_1)) <= ((Total - Sum_2)*(Total - Sum_2)));*/
 }
