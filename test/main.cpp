@@ -133,3 +133,17 @@ TEST_CASE("difference min")
     REQUIRE(difference_min_plus == 50);
     REQUIRE(difference_min_minus == 30);
 }
+
+
+TEST_CASE("difference sms")
+{
+	short difference_sms_plus = 0;
+    short difference_sms_minus = 0;
+    my_tarif list;
+	list.sms = 370;
+
+    difference_sms(&difference_sms_plus, &difference_sms_minus, list);
+
+    REQUIRE(difference_sms_plus == 150);
+    REQUIRE(difference_sms_minus == 50);
+}
