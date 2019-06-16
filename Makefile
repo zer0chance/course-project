@@ -6,7 +6,7 @@ OBJECTS = $(patsubst $(addprefix src/, %.cpp),$(addprefix build/src/, %.o),$(wil
 DEPENDENCIES = $(patsubst $(addprefix build/src/, %.o), $(addprefix build/src/, %.d), $(wildcard $(addprefix build/src/, *.o)))
 
 TEST = bin/test.exe
-TEST_DEPENDENCIES = build/test/main.o build/test/sort_price.o build/test/sort_relevance.o build/test/difference_gb.o
+TEST_DEPENDENCIES = build/test/main.o build/test/sort_price.o build/test/sort_relevance.o 
 
 all : $(SOURCES) $(EXECUTABLE)
 
