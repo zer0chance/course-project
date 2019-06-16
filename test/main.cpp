@@ -123,4 +123,13 @@ TEST_CASE("difference min")
 
     REQUIRE(difference_min_plus == 70);
     REQUIRE(difference_min_minus == 20);
+
+    difference_min_plus = 0;
+    difference_min_minus = 0;
+	list.min = 30;
+
+    difference_min(&difference_min_plus, &difference_min_minus, list);
+
+    REQUIRE(difference_min_plus == 50);
+    REQUIRE(difference_min_minus == 30);
 }
