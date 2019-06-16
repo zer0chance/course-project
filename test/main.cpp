@@ -47,7 +47,7 @@ TEST_CASE("Sorting by price")
 TEST_CASE("Sorting by relevance")
 {
 	srand(time(0));
-	int size = 5, i, Total, Sum_1 = 0, Sum_2 = 0;
+	int size = 5, i, Total, Sum_1 = 0, Sum_2 = 0, Sum_3 = 0, Sum_4 = 0, Sum_5 = 0, Sum_6 = 0, Sum_7 = 0, Sum_8 = 0;
 	data list[size];
 	my_tarif input;
 
@@ -61,10 +61,9 @@ TEST_CASE("Sorting by relevance")
 		
 	for (i = 0; i < size; i++) A[i] = i;
 
-
-	for (i = 0; i < size; i++) list[i].gb = 11 + rand()%8;
-	for (i = 0; i < size; i++) list[i].min = 50 + rand()%41;
-	for (i = 0; i < size; i++) list[i].gb = 40 + rand()%20;	
+	for (i = 0; i < size; i++) list[i].gb = 13 + i;
+	for (i = 0; i < size; i++) list[i].min = 90 - i*10;
+	for (i = 0; i < size; i++) list[i].sms = 40 + i*4;	
 
 	Relevance_Sort(input, list, A, size);
 
@@ -72,15 +71,16 @@ TEST_CASE("Sorting by relevance")
 	Sum_2 = list[A[1]].gb * 25 + list[A[1]].sms + list[A[1]].min;
 	REQUIRE(((Total - Sum_1)*(Total - Sum_1)) <= ((Total - Sum_2)*(Total - Sum_2)));
 
-	/*Sum_1 = list[A[1]].gb * 25 + list[A[1]].sms + list[A[1]].min;
-	Sum_2 = list[A[2]].gb * 25 + list[A[2]].sms + list[A[2]].min;
-	REQUIRE(((Total - Sum_1)*(Total - Sum_1)) <= ((Total - Sum_2)*(Total - Sum_2)));
 
-	Sum_1 = list[A[2]].gb * 25 + list[A[2]].sms + list[A[2]].min;
-	Sum_2 = list[A[3]].gb * 25 + list[A[3]].sms + list[A[3]].min;
-	REQUIRE(((Total - Sum_1)*(Total - Sum_1)) <= ((Total - Sum_2)*(Total - Sum_2)));*/
+	Sum_3 = list[A[1]].gb * 25 + list[A[1]].sms + list[A[1]].min;
+	Sum_4 = list[A[2]].gb * 25 + list[A[2]].sms + list[A[2]].min;
+	REQUIRE(((Total - Sum_3)*(Total - Sum_3)) <= ((Total - Sum_4)*(Total - Sum_4)));
 
-	/*Sum_1 = list[A[3]].gb * 25 + list[A[3]].sms + list[A[3]].min;
-	Sum_2 = list[A[4]].gb * 25 + list[A[4]].sms + list[A[4]].min;
-	REQUIRE(((Total - Sum_1)*(Total - Sum_1)) <= ((Total - Sum_2)*(Total - Sum_2)));*/
+	Sum_5 = list[A[2]].gb * 25 + list[A[2]].sms + list[A[2]].min;
+	Sum_6 = list[A[3]].gb * 25 + list[A[3]].sms + list[A[3]].min;
+	REQUIRE(((Total - Sum_5)*(Total - Sum_5)) <= ((Total - Sum_6)*(Total - Sum_6)));
+
+	Sum_7 = list[A[3]].gb * 25 + list[A[3]].sms + list[A[3]].min;
+	Sum_8 = list[A[4]].gb * 25 + list[A[4]].sms + list[A[4]].min;
+	REQUIRE(((Total - Sum_7)*(Total - Sum_7)) <= ((Total - Sum_8)*(Total - Sum_8)));
 }
