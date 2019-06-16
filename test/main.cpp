@@ -101,4 +101,13 @@ TEST_CASE("difference gb")
 
     REQUIRE(difference_gb_plus == 5);
     REQUIRE(difference_gb_minus == 2);
+
+    difference_gb_plus = 0;
+    difference_gb_minus = 0;
+    list.gb = 100;
+
+    difference_gb(&difference_gb_plus, &difference_gb_minus, list);
+
+    REQUIRE(difference_gb_plus == 10);
+    REQUIRE(difference_gb_minus == 3);
 }
