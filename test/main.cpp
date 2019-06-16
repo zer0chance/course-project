@@ -111,3 +111,16 @@ TEST_CASE("difference gb")
     REQUIRE(difference_gb_plus == 10);
     REQUIRE(difference_gb_minus == 3);
 }
+
+TEST_CASE("difference min")
+{
+	short difference_min_plus = 0;
+    short difference_min_minus = 0;
+    my_tarif list;
+	list.min = 68;
+
+    difference_min(&difference_min_plus, &difference_min_minus, list);
+
+    REQUIRE(difference_min_plus == 70);
+    REQUIRE(difference_min_minus == 20);
+}
