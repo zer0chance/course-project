@@ -6,7 +6,7 @@ OBJECTS = $(patsubst $(addprefix src/, %.cpp),$(addprefix build/src/, %.o),$(wil
 DEPENDENCIES = $(patsubst $(addprefix build/src/, %.o), $(addprefix build/src/, %.d), $(wildcard $(addprefix build/src/, *.o)))
 
 TEST = bin/test.exe
-TEST_DEPENDENCIES = build/test/main.o build/test/sort_price.o build/test/sort_relevance.o build/test/difference_gb.o
+TEST_DEPENDENCIES = build/test/main.o build/test/sort_price.o build/test/sort_relevance.o build/test/difference_gb.o build/test/difference_min.o
 
 all : $(SOURCES) $(EXECUTABLE)
 
@@ -38,3 +38,7 @@ build/test/sort_relevance.o: src/sort_relevance.cpp src/tarif.h
 
 build/test/difference_gb.o: src/difference_gb.cpp src/tarif.h 
 	$(CC) -std=c++11 -I$(CATCH_SINGLE_INCLUDE) -Wall -Werror -c -I thirdparty -I src src/difference_gb.cpp -o build/test/difference_gb.o
+
+build/test/difference_min.o: src/difference_min.cpp src/tarif.h 
+	$(CC) -std=c++11 -I$(CATCH_SINGLE_INCLUDE) -Wall -Werror -c -I thirdparty -I src src/difference_min.cpp -o build/test/difference_min.o
+
