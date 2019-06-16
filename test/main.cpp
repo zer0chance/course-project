@@ -114,10 +114,10 @@ TEST_CASE("difference gb")
 
 TEST_CASE("difference min")
 {
-	short difference_min_plus = 0;
+    short difference_min_plus = 0;
     short difference_min_minus = 0;
     my_tarif list;
-	list.min = 68;
+    list.min = 68;
 
     difference_min(&difference_min_plus, &difference_min_minus, list);
 
@@ -126,7 +126,7 @@ TEST_CASE("difference min")
 
     difference_min_plus = 0;
     difference_min_minus = 0;
-	list.min = 30;
+    list.min = 30;
 
     difference_min(&difference_min_plus, &difference_min_minus, list);
 
@@ -134,16 +134,24 @@ TEST_CASE("difference min")
     REQUIRE(difference_min_minus == 30);
 }
 
-
 TEST_CASE("difference sms")
 {
-	short difference_sms_plus = 0;
+    short difference_sms_plus = 0;
     short difference_sms_minus = 0;
     my_tarif list;
-	list.sms = 370;
+    list.sms = 370;
 
     difference_sms(&difference_sms_plus, &difference_sms_minus, list);
 
     REQUIRE(difference_sms_plus == 150);
     REQUIRE(difference_sms_minus == 50);
+
+    difference_sms_plus = 0;
+    difference_sms_minus = 0;
+    list.sms = 0;
+
+    difference_sms(&difference_sms_plus, &difference_sms_minus, list);
+
+    REQUIRE(difference_sms_plus == 0);
+    REQUIRE(difference_sms_minus == 0);
 }
