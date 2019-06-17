@@ -6,9 +6,12 @@ int main()
     unsigned int sort_way, sort_field;
     my_tarif my_list;
 
-    char gb[3];
-    char min[4];
-    char sms[4];
+    char* gb;
+    gb = new char[3];
+    char* min;
+    min = new char[4];
+    char* sms;
+    sms = new char[4];
 
     int flag;
 
