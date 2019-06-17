@@ -8,6 +8,7 @@ int main()
 
     char gb[3];
     char min[4];
+    char sms[4];
 
     int flag;
 
