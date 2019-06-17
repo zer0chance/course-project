@@ -6,12 +6,27 @@ int main()
     unsigned int sort_way, sort_field;
     my_tarif my_list;
 
-    printf("Amount of GB of internet you spend every mounth\n");
-    scanf("%hi", &my_list.gb);
-    while (my_list.gb < 0) {
-        printf("Invalid input \nAmount of GB of internet you spend every mounth\n");
-        scanf("%hi", &my_list.gb);
-    }
+    char gb[3];
+
+    int flag;
+
+    do {
+        flag = 0;
+        printf("Amount of GB of internet you spend every mounth\n");
+        scanf("%s", gb);
+        char len = strlen(gb);
+        for (int i = 0; i < len; i++) {
+            if (('0' > gb[i]) || (gb[i] > '9')) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 1) {
+            printf("Invalid input \n");
+        }
+    } while (flag == 1);
+
+    sscanf(gb, "%hi", &my_list.gb);
 
     printf("Amount of minutes you speak every mounth\n");
     scanf("%hi", &my_list.min);
