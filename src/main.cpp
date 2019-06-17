@@ -46,13 +46,23 @@ int main()
     } while (flag == 1);
 
     sscanf(min, "%hi", &my_list.min);
+    do {
+        flag = 0;
+        printf("Amount of SMS you send every mounth\n");
+        scanf("%s", sms);
+        char len = strlen(sms);
+        for (int i = 0; i < len; i++) {
+            if (('0' > sms[i]) || (sms[i] > '9')) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 1) {
+            printf("Invalid input \n");
+        }
+    } while (flag == 1);
 
-    printf("Amount of SMS you send every mounth\n");
-    scanf("%hi", &my_list.sms);
-    while (my_list.sms < 0) {
-        printf("Invalid input \nAmount of SMS you send every mounth\n");
-        scanf("%hi", &my_list.sms);
-    }
+    sscanf(sms, "%hi", &my_list.sms);
 
     printf("Do you want your tariff to include calls abroad? (y/n)\n");
     scanf("%s", &my_list.min_mezhgorod);
