@@ -7,6 +7,7 @@ int main()
     my_tarif my_list;
 
     char gb[3];
+    char min[4];
 
     int flag;
 
@@ -28,12 +29,23 @@ int main()
 
     sscanf(gb, "%hi", &my_list.gb);
 
-    printf("Amount of minutes you speak every mounth\n");
-    scanf("%hi", &my_list.min);
-    while (my_list.min < 0) {
-        printf("Invalid input \nAmount of minutes you speak every mounth\n");
-        scanf("%hi", &my_list.min);
-    }
+    do {
+        flag = 0;
+        printf("Amount of minutes you speak every mounth\n");
+        scanf("%s", min);
+        char len = strlen(min);
+        for (int i = 0; i < len; i++) {
+            if (('0' > min[i]) || (min[i] > '9')) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 1) {
+            printf("Invalid input \n");
+        }
+    } while (flag == 1);
+
+    sscanf(min, "%hi", &my_list.min);
 
     printf("Amount of SMS you send every mounth\n");
     scanf("%hi", &my_list.sms);
