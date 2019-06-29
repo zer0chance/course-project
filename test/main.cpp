@@ -264,7 +264,7 @@ TEST_CASE("sms for me")
     REQUIRE(flag == 1);
 }
 
-TEST_CASE("quanity")
+TEST_CASE("quantity")
 {
 
     data* list;
