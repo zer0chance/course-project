@@ -263,3 +263,92 @@ TEST_CASE("sms for me")
 
     REQUIRE(flag == 1);
 }
+
+TEST_CASE("quanity")
+{
+
+    data* list;
+    list = new data[4];
+    list[0].sms_b = true;
+    list[0].min_b = true;
+    list[0].gb_b = true;
+
+    list[1].sms_b = true;
+    list[1].min_b = false;
+    list[1].gb_b = true;
+
+    list[2].sms_b = false;
+    list[2].min_b = false;
+    list[2].gb_b = false;
+
+    list[3].sms_b = true;
+    list[3].min_b = true;
+    list[3].gb_b = true;
+
+    REQUIRE(quantity_my_tarif(list, 4) == 2);
+
+    REQUIRE(quantity_my_tarif(list, 1) == 1);
+}
+
+TEST_CASE("bool for me")
+{
+    short difference_gb_plus;
+    short difference_gb_minus;
+    short difference_min_plus;
+    short difference_min_minus;
+    short difference_sms_plus;
+    short difference_sms_minus;
+
+    my_tarif my_list;
+    my_list.gb = 7;
+    my_list.min = 120;
+    my_list.sms = 100;
+    data* list;
+    list = new data[5];
+
+    list[0].gb = 11;
+    list[0].min = 180;
+    list[0].sms = 150;
+    list[0].gb_b = false;
+
+    list[1].gb = 5;
+    list[1].min = 120;
+    list[1].sms = 90;
+    list[1].gb_b = false;
+
+    list[2].gb = 2;
+    list[2].min = 130;
+    list[2].sms = 110;
+    list[2].gb_b = false;
+
+    list[3].gb = 4;
+    list[3].min = 110;
+    list[3].sms = 190;
+    list[3].gb_b = false;
+
+    list[4].gb = 20;
+    list[4].min = 100;
+    list[4].sms = 174;
+    list[4].gb_b = false;
+
+    difference_gb(&difference_gb_plus, &difference_gb_minus, my_list);
+    difference_min(&difference_min_plus, &difference_min_minus, my_list);
+    difference_sms(&difference_sms_plus, &difference_sms_minus, my_list);
+
+    bool_for_me(difference_gb_plus, difference_gb_minus, difference_min_plus, difference_min_minus, difference_sms_plus,
+        difference_sms_minus, my_list, list, 5);
+
+    for (int i = 0; i < 5; i++) {
+        int flag_gb = 0, flag_min = 0, flag_sms = 0;
+        if (list[i].gb_b == true)
+            flag_gb = 1;
+        if (list[i].min_b == true)
+            flag_min = 1;
+        if (list[i].sms_b == true)
+            flag_sms = 1;
+
+        REQUIRE(flag_gb == 0);
+        REQUIRE(flag_min == 1);
+        REQUIRE(flag_sms == 1);
+    }
+}
