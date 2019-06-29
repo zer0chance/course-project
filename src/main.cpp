@@ -94,7 +94,7 @@ int main()
         print_my_tarif(tarif_for_me, size, output, IndexArr);
     }
 
-    printf("\n\n DONE!\nCheck output.txt");
+    printf("\n\n DONE!\nCheck output.txt\n\n");
 
     fclose(output);
 
