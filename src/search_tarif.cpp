@@ -1,6 +1,6 @@
 #include "tarif.h"
 
-void search_tarif(data* list, data* tarif_for_me)
+void search_tarif(data* list, data* tarif_for_me, int n)
 {
 
     int j = 0;

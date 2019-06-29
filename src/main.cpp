@@ -2,11 +2,14 @@
 
 int main()
 {
+
+    int n = 656;
+
     int *IndexArr, *IndexArrVerse;
     unsigned int sort_way, sort_field;
     my_tarif my_list;
 
-   scan(my_list);
+    scan(my_list);
 
     data* list;
     list = new data[n];
@@ -41,9 +44,9 @@ int main()
     short difference_sms_minus = 0;
     difference_sms(&difference_sms_plus, &difference_sms_minus, my_list);
     bool_for_me(difference_gb_plus, difference_gb_minus, difference_min_plus, difference_min_minus, difference_sms_plus,
-        difference_sms_minus, my_list, list);
+        difference_sms_minus, my_list, list, n);
 
-    size = quantity_my_tarif(list);
+    size = quantity_my_tarif(list, n);
     data* tarif_for_me;
     tarif_for_me = new data[size];
     IndexArr = new int[size];
@@ -52,7 +55,7 @@ int main()
     for (i = 0; i < size; i++)
         IndexArr[i] = i;
 
-    search_tarif(list, tarif_for_me);
+    search_tarif(list, tarif_for_me, n);
 
     FILE* output;
     output = fopen("output.txt", "w");

@@ -7,8 +7,6 @@
 #include <string.h>
 #include <ctime>
 
-const int n = 656;
-
 typedef struct tarifbook {
     char company[10];
     char tarif[10];
@@ -38,9 +36,9 @@ void gb_for_me(short difference_gb_plus, short difference_gb_minus, my_tarif my_
 void min_for_me(short difference_min_plus, short difference_min_minus, my_tarif my_list, data* list, int i);
 void sms_for_me(short difference_sms_plus, short difference_sms_minus, my_tarif my_list, data* list, int i);
 void bool_for_me(short difference_gb_plus, short difference_gb_minus, short difference_min_plus, short difference_min_minus,
-    short difference_sms_plus, short difference_sms_minus, my_tarif my_list, data* list);
-int quantity_my_tarif(data* list);
-void search_tarif(data* list, data* tarif_for_me);
+    short difference_sms_plus, short difference_sms_minus, my_tarif my_list, data* list, int n);
+int quantity_my_tarif(data* list, int n);
+void search_tarif(data* list, data* tarif_for_me, int n);
 void print_my_tarif(data* list, int m, FILE* output, int* A);
 void Sort_Price(data* list, int* A, int size);
 void Relevance_Sort(my_tarif my_list, data* list, int* A, int size);
