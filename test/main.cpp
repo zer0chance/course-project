@@ -263,3 +263,29 @@ TEST_CASE("sms for me")
 
     REQUIRE(flag == 1);
 }
+
+TEST_CASE("quanity")
+{
+
+    data* list;
+    list = new data[4];
+    list[0].sms_b = true;
+    list[0].min_b = true;
+    list[0].gb_b = true;
+
+    list[1].sms_b = true;
+    list[1].min_b = false;
+    list[1].gb_b = true;
+
+    list[2].sms_b = false;
+    list[2].min_b = false;
+    list[2].gb_b = false;
+
+    list[3].sms_b = true;
+    list[3].min_b = true;
+    list[3].gb_b = true;
+
+    REQUIRE(quantity_my_tarif(list, 4) == 2);
+
+    REQUIRE(quantity_my_tarif(list, 1) == 1);
+}
