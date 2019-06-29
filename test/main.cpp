@@ -155,3 +155,40 @@ TEST_CASE("difference sms")
     REQUIRE(difference_sms_plus == 0);
     REQUIRE(difference_sms_minus == 0);
 }
+
+TEST_CASE("gb for me")
+{
+    short difference_gb_plus=3;
+    short difference_gb_minus=1;
+    my_tarif my_list;
+    my_list.gb = 7;
+    data* list;
+    list = new data[1];
+    list[0].gb = 8;
+    list[0].gb_b = false;
+
+    difference_gb(&difference_gb_plus, &difference_gb_minus, my_list);
+
+    gb_for_me(difference_gb_plus, difference_gb_minus, my_list, list, 0);
+
+    int flag = 0;
+    if (list[0].gb_b == true)
+        flag = 1;
+
+    REQUIRE(flag == 1);
+
+    difference_gb_plus = 2;
+    difference_gb_minus = 1;
+
+    my_list.gb = 1;
+    list[0].gb = 4;
+    list[0].gb_b = false;
+
+    gb_for_me(difference_gb_plus, difference_gb_minus, my_list, list, 0);
+
+    flag = 0;
+    if (list[0].gb_b == true)
+        flag = 1;
+
+    REQUIRE(flag == 0);
+}
