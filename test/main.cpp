@@ -205,7 +205,7 @@ TEST_CASE("min for me")
 
     difference_min(&difference_min_plus, &difference_min_minus, my_list);
 
-    gb_for_me(difference_min_plus, difference_min_minus, my_list, list, 0);
+    min_for_me(difference_min_plus, difference_min_minus, my_list, list, 0);
 
     int flag = 0;
     if (list[0].gb_b == true)
@@ -213,22 +213,17 @@ TEST_CASE("min for me")
 
     REQUIRE(flag == 0);
 
+    my_list.min = 600;
+    list[0].min = 800;
+    list[0].min_b = false;
 
-  //  difference_gb_plus = 2;
-   // difference_gb_minus = 1;
+    difference_min(&difference_min_plus, &difference_min_minus, my_list);
 
-
-  /*  my_list.gb = 1;
-    list[0].gb = 4;
-    list[0].gb_b = false;
-
-    difference_gb(&difference_gb_plus, &difference_gb_minus, my_list);
-
-    gb_for_me(difference_gb_plus, difference_gb_minus, my_list, list, 0);
+    min_for_me(difference_min_plus, difference_min_minus, my_list, list, 0);
 
     flag = 0;
-    if (list[0].gb_b == true)
+    if (list[0].min_b == true)
         flag = 1;
 
-    REQUIRE(flag == 0);*/
+    REQUIRE(flag == 1);
 }
