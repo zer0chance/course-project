@@ -191,3 +191,44 @@ TEST_CASE("gb for me")
 
     REQUIRE(flag == 0);
 }
+
+TEST_CASE("min for me")
+{
+    short difference_min_plus;
+    short difference_min_minus;
+    my_tarif my_list;
+    my_list.min = 60;
+    data* list;
+    list = new data[1];
+    list[0].min = 100;
+    list[0].gb_b = false;
+
+    difference_min(&difference_min_plus, &difference_min_minus, my_list);
+
+    gb_for_me(difference_min_plus, difference_min_minus, my_list, list, 0);
+
+    int flag = 0;
+    if (list[0].gb_b == true)
+        flag = 1;
+
+    REQUIRE(flag == 0);
+
+
+  //  difference_gb_plus = 2;
+   // difference_gb_minus = 1;
+
+
+  /*  my_list.gb = 1;
+    list[0].gb = 4;
+    list[0].gb_b = false;
+
+    difference_gb(&difference_gb_plus, &difference_gb_minus, my_list);
+
+    gb_for_me(difference_gb_plus, difference_gb_minus, my_list, list, 0);
+
+    flag = 0;
+    if (list[0].gb_b == true)
+        flag = 1;
+
+    REQUIRE(flag == 0);*/
+}
