@@ -155,3 +155,111 @@ TEST_CASE("difference sms")
     REQUIRE(difference_sms_plus == 0);
     REQUIRE(difference_sms_minus == 0);
 }
+
+TEST_CASE("gb for me")
+{
+    short difference_gb_plus;
+    short difference_gb_minus;
+    my_tarif my_list;
+    my_list.gb = 7;
+    data* list;
+    list = new data[1];
+    list[0].gb = 8;
+    list[0].gb_b = false;
+
+    difference_gb(&difference_gb_plus, &difference_gb_minus, my_list);
+
+    gb_for_me(difference_gb_plus, difference_gb_minus, my_list, list, 0);
+
+    int flag = 0;
+    if (list[0].gb_b == true)
+        flag = 1;
+
+    REQUIRE(flag == 1);
+
+    my_list.gb = 1;
+    list[0].gb = 4;
+    list[0].gb_b = false;
+
+    difference_gb(&difference_gb_plus, &difference_gb_minus, my_list);
+
+    gb_for_me(difference_gb_plus, difference_gb_minus, my_list, list, 0);
+
+    flag = 0;
+    if (list[0].gb_b == true)
+        flag = 1;
+
+    REQUIRE(flag == 0);
+}
+
+TEST_CASE("min for me")
+{
+    short difference_min_plus;
+    short difference_min_minus;
+    my_tarif my_list;
+    my_list.min = 60;
+    data* list;
+    list = new data[1];
+    list[0].min = 100;
+    list[0].min_b = false;
+
+    difference_min(&difference_min_plus, &difference_min_minus, my_list);
+
+    min_for_me(difference_min_plus, difference_min_minus, my_list, list, 0);
+
+    int flag = 0;
+    if (list[0].min_b == true)
+        flag = 1;
+
+    REQUIRE(flag == 1);
+
+    my_list.min = 600;
+    list[0].min = 200;
+    list[0].min_b = false;
+
+    difference_min(&difference_min_plus, &difference_min_minus, my_list);
+
+    min_for_me(difference_min_plus, difference_min_minus, my_list, list, 0);
+
+    flag = 0;
+    if (list[0].min_b == true)
+        flag = 1;
+
+    REQUIRE(flag == 0);
+}
+
+TEST_CASE("sms for me")
+{
+    short difference_sms_plus;
+    short difference_sms_minus;
+    my_tarif my_list;
+    my_list.sms = 10;
+    data* list;
+    list = new data[1];
+    list[0].sms = 50;
+    list[0].sms_b = false;
+
+    difference_sms(&difference_sms_plus, &difference_sms_minus, my_list);
+
+    sms_for_me(difference_sms_plus, difference_sms_minus, my_list, list, 0);
+
+    int flag = 0;
+    if (list[0].sms_b == true)
+        flag = 1;
+
+    REQUIRE(flag == 1);
+
+    my_list.sms = 800;
+    list[0].sms = 900;
+    list[0].sms_b = false;
+
+    difference_sms(&difference_sms_plus, &difference_sms_minus, my_list);
+
+    sms_for_me(difference_sms_plus, difference_sms_minus, my_list, list, 0);
+
+    flag = 0;
+    if (list[0].sms_b == true)
+        flag = 1;
+
+    REQUIRE(flag == 1);
+}
