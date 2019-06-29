@@ -158,8 +158,8 @@ TEST_CASE("difference sms")
 
 TEST_CASE("gb for me")
 {
-    short difference_gb_plus=3;
-    short difference_gb_minus=1;
+    short difference_gb_plus;
+    short difference_gb_minus;
     my_tarif my_list;
     my_list.gb = 7;
     data* list;
@@ -177,12 +177,11 @@ TEST_CASE("gb for me")
 
     REQUIRE(flag == 1);
 
-    difference_gb_plus = 2;
-    difference_gb_minus = 1;
-
     my_list.gb = 1;
     list[0].gb = 4;
     list[0].gb_b = false;
+
+    difference_gb(&difference_gb_plus, &difference_gb_minus, my_list);
 
     gb_for_me(difference_gb_plus, difference_gb_minus, my_list, list, 0);
 
