@@ -62,20 +62,29 @@ int main()
     print_my_tarif(tarif_for_me, size, output, IndexArr);
     fclose(output);
 
-    printf("\nDo you want to sort suitable tariffs by price/relevance? (1/2)\n");
-    while (sort_field != 1 && sort_field != 2) {
-        scanf("%u", &sort_field);
-    }
+    char sort_field_char;
+    do {
+        printf("\nDo you want to sort suitable tariffs by price/relevance? (1/2)\n");
+        scanf("%s", &sort_field_char);
+
+    } while (sort_field_char != '1' && sort_field_char != '2');
+
+    sort_field = sort_field_char - 48;
 
     if (sort_field == 1) {
         Sort_Price(tarif_for_me, IndexArr, size);
         for (i = 0; i < size; i++)
             IndexArrVerse[i] = IndexArr[size - 1 - i];
 
-        printf("\nDo you want to sort by price up/down? (1/2)\n");
-        while (sort_way != 1 && sort_way != 2) {
-            scanf("%u", &sort_way);
-        }
+        char sort_way_char;
+        do {
+
+            printf("\nDo you want to sort by price up/down? (1/2)\n");
+            scanf("%s", &sort_way_char);
+
+        } while (sort_way_char != '1' && sort_way_char != '2');
+
+        sort_way = sort_way_char - 48;
 
         output = fopen("output.txt", "w");
 
